@@ -8,6 +8,6 @@ package App.Models;
  *
  * @author EtchEGo
  */
-public class Employee {
+public class Employee extends Model{
     
 }

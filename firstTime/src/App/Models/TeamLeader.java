@@ -8,6 +8,6 @@ package App.Models;
  *
  * @author EtchEGo
  */
-public class TeamLeader {
+public class TeamLeader extends Model{
     
 }

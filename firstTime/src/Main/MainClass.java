@@ -4,7 +4,7 @@
  */
 package Main;
 
-import Database.config;
+import App.Controllers.Auth.LoginController;
 /**
  *
  * @author EtchEGo
@@ -15,7 +15,7 @@ public class MainClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(config.get_Instance());
+        LoginController login = new LoginController();
         
     }
     

@@ -8,6 +8,6 @@ package App.Models;
  *
  * @author EtchEGo
  */
-public class ProjectManager {
+public class ProjectManager extends Model{
     
 }

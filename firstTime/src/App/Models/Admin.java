@@ -8,6 +8,6 @@ package App.Models;
  *
  * @author EtchEGo
  */
-public class Admin {
+public class Admin extends Model{
     
 }
