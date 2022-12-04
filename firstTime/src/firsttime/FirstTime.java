@@ -4,6 +4,7 @@
  */
 package firsttime;
 
+import Database.config;
 /**
  *
  * @author EtchEGo
@@ -14,7 +15,8 @@ public class FirstTime {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello World Hisham");
+        System.out.println(config.get_Instance());
+        
     }
     
 }
