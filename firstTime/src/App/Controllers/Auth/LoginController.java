@@ -1,9 +1,11 @@
 
 package App.Controllers.Auth;
 
+import App.Controllers.AdminController;
 import App.Models.Admin;
 import java.util.ArrayList;
 import App.Models.Model;
+import Resources.Views.Admin.AllProjects;
 import com.mysql.cj.protocol.Resultset;
 import java.sql.*;
 import java.util.HashMap;
@@ -19,16 +21,16 @@ public class LoginController {
     // All usert Loged in Data
     public Map<String, String> Auth = new HashMap<String, String>();
     Model model = new Model();
-    Login login = new Login();
+    
     
     
     public LoginController()
     {
+        Login login =  new Login();
         login.setVisible(true);
         login.setLocationRelativeTo(null);
         
         model.setTable("employee");
-        // return login view
     }
     
     public void check(String email, String password, String role)
@@ -45,7 +47,7 @@ public class LoginController {
                 Auth.put("role",resultSet.getString("role"));
                 Auth.put("role_id",resultSet.getString("role_id"));
                 Auth.put("salarty", resultSet.getString("salary"));
-                System.out.println(Auth);
+                this.redirect();
             }else{
                 JOptionPane.showMessageDialog(null, "The Credintila not Found");
             }
@@ -59,7 +61,7 @@ public class LoginController {
         String role = Auth.get("role");
         switch (role) {
             case "admin" -> {
-                
+                AdminController adminController = new AdminController();
             }
             case "project manager" -> {
             }
