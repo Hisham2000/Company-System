@@ -37,7 +37,21 @@ public class Model {
         statement.executeUpdate(query);
     }
     
+    public ResultSet chick(String email, String password, String role) throws SQLException
+    {
+        String query = "SELECT * FROM "+this.table+" WHERE email = '"+email+"' And password = '"+password+"' And role = '"+role+"';";
+        Statement statement = this.connection.createStatement();
+        ResultSet result = statement.executeQuery(query);
+        return result;
+    }
     
+    public int addEmployee(String name, String email, String password, String role) throws SQLException
+    {
+        String query = "INSERT INTO `employee` VALUES('" + name + "', '"+email+"', '"+password+"', '"+role+"')";
+        Statement statement = this.connection.createStatement();
+        int result = statement.executeUpdate(query);
+        return result;
+    }
     
 
 }
