@@ -4,11 +4,13 @@ package App.Models;
 import java.sql.*;
 import Database.config;
 import javax.swing.JOptionPane;
+import App.Controllers.Auth.LoginController;
+import com.mysql.cj.conf.PropertyDefinitions;
 
 public class Model {
     protected String table;
     
-    private Connection connection = config.get_Instance();
+    protected Connection connection = config.get_Instance();
     
     public void setTable(String table)
     {
@@ -48,7 +50,6 @@ public class Model {
     
     public int addEmployee(String name, String email, String password, int salary, String role, int role_id) throws SQLException
     {
-//        INSERT INTO `employee`(`id`, `name`, `email`, `password`, `salary`, `role`, `role_id`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')
         String query = "INSERT INTO `employee` ( name, email, password, salary, role, role_id ) VALUES('" + name + "', '"+email+"', '"+password+"', "+salary+", '"+role+"', "+role_id+")";
         Statement statement = this.connection.createStatement();
         int result = statement.executeUpdate(query);

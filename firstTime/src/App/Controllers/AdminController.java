@@ -8,11 +8,6 @@ import App.Models.Projects;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import Resources.Views.Admin.Index;
-import Resources.Views.Auth.Register;
-import App.Models.Employee;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.plaf.synth.Region;
 /**
  *
  * @author EtchEGo
