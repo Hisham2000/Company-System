@@ -2,6 +2,7 @@
 package App.Controllers.Auth;
 
 import App.Controllers.AdminController;
+import App.Controllers.ProjectManagerController;
 import App.Models.Admin;
 import java.util.ArrayList;
 import App.Models.Model;
@@ -19,7 +20,7 @@ public class LoginController {
     
     
     // All usert Loged in Data
-    public Map<String, String> Auth = new HashMap<String, String>();
+    public static Map<String, String> Auth = new HashMap<String, String>();
     Model model = new Model();
     
     
@@ -59,11 +60,14 @@ public class LoginController {
     private void redirect()
     {
         String role = Auth.get("role");
+        role = role.toLowerCase();
         switch (role) {
             case "admin" -> {
                 AdminController adminController = new AdminController();
             }
-            case "project manager" -> {
+            case "projectmanager" -> {
+                ProjectManagerController projectManagerController = new ProjectManagerController();
+                projectManagerController.index();
             }
             case "team leader" -> {
             }
