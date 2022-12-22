@@ -2,6 +2,7 @@
 package App.Controllers;
 
 import App.Controllers.Auth.RegisterController;
+import App.FactoryPattern.User;
 import App.Models.Admin;
 import Resources.Views.Admin.AllProjects;
 import App.Models.Projects;
@@ -12,11 +13,12 @@ import Resources.Views.Admin.Index;
  *
  * @author EtchEGo
  */
-public class AdminController {
+public class AdminController implements User{
     
     Admin admin = new Admin();
     
-    public  AdminController()
+    
+    public void index()
     {
         Index index = new Index();
         index.setVisible(true);

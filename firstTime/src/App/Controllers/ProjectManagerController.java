@@ -1,12 +1,13 @@
 
 package App.Controllers;
 
+import App.FactoryPattern.User;
 import Resources.Views.ProjectManager.*;
 import java.sql.*;
 import App.Models.*;
 import javax.swing.JOptionPane;
 
-public class ProjectManagerController {
+public class ProjectManagerController implements User{
     
     public void index()
     {
