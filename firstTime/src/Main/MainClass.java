@@ -17,6 +17,7 @@ public class MainClass {
     public static void main(String[] args) {
         
         LoginController login = new LoginController(); 
+        login.index();
         
     }
     

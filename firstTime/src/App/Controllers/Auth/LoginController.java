@@ -2,8 +2,13 @@
 package App.Controllers.Auth;
 
 import App.Controllers.AdminController;
+import App.Controllers.EmployeeController;
 import App.Controllers.ProjectManagerController;
+import App.Controllers.TeamLeaderController;
+import App.FactoryPattern.User;
+import App.FactoryPattern.UserFactory;
 import App.Models.Admin;
+import App.Models.Employee;
 import java.util.ArrayList;
 import App.Models.Model;
 import Resources.Views.Admin.AllProjects;
@@ -27,11 +32,14 @@ public class LoginController {
     
     public LoginController()
     {
+        model.setTable("employee");
+    }
+    
+    public void index()
+    {
         Login login =  new Login();
         login.setVisible(true);
         login.setLocationRelativeTo(null);
-        
-        model.setTable("employee");
     }
     
     public void check(String email, String password, String role)
@@ -61,19 +69,8 @@ public class LoginController {
     {
         String role = Auth.get("role");
         role = role.toLowerCase();
-        switch (role) {
-            case "admin" -> {
-                AdminController adminController = new AdminController();
-            }
-            case "projectmanager" -> {
-                ProjectManagerController projectManagerController = new ProjectManagerController();
-                projectManagerController.index();
-            }
-            case "team leader" -> {
-            }
-            default -> {
-            }
-        }
+        User user = UserFactory.getUser(role);
+        user.index();
     }
     
     private void attempt()
